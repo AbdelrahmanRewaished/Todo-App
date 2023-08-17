@@ -1,0 +1,66 @@
+<div class="container col-md-6 offset-md-3 mt-5">
+  <br>
+  <br>
+  <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+  <div class="card">
+    <h4 class="card-header">Register</h4>
+    <div class="card-body">
+      <form class="row g-3 needs-validation" [formGroup]="registrationForm" (ngSubmit)="onSubmit()" novalidate>
+        
+        <div class="mb-3">
+          <label class="form-label">First name</label>
+          <input title="FirstName" placeholder="First Name" type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
+          <div *ngIf="f['firstName']?.errors?.['required']" class="invalid-feedback">First name is required</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Last name</label>
+          <input title="LastName" placeholder="Last Name" type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
+          <div *ngIf="f['lastName']?.errors?.['required']" class="invalid-feedback">Last name is required</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input title="Email" placeholder="Email" type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+          <div *ngIf="submitted && f['email']?.errors" class="invalid-feedback">
+              Email must be in correct form
+              <div *ngIf="f['email']?.errors?.['required']" class="invalid-feedback">Email is required</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Phone number</label>
+          <input title="PhoneNumber" placeholder="Phone number" type="tel" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }" />
+          <div *ngIf="submitted && f['phoneNumber']?.errors" class="invalid-feedback">
+              Phone number must be in correct form
+              <div *ngIf="f['phoneNumber']?.errors?.['required']" class="invalid-feedback">Phone number is required</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input title="Password" placeholder="Password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+          <div *ngIf="f['email']?.errors?.['required']" class="invalid-feedback">Password is required</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Confirm Password</label>
+          <input title="ConfirmPassword" placeholder="Confirm Password" type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }" />
+          <div *ngIf="submitted && !passwordsMatching" class="invalid-feedback">
+              Passwords do not match
+              <div *ngIf="f['confirmPassword']?.errors?.['required']" class="invalid-feedback">Confirm Password is required</div>
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-dark">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+            Submit
+          </button>
+        </div>
+        <a routerLink="/login" class="btn btn-link">already have an account</a>
+
+      </form>
+    </div>
+  </div>  
+</div>

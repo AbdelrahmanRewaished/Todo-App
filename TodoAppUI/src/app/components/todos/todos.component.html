@@ -1,0 +1,47 @@
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <h3>Add a new Todo</h3>
+        <form #form="ngForm" (ngSubmit)="addTodo()">
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input type="email" class="form-control" id="description" [(ngModel)]="newTodo.description" name="description">
+            </div>
+            <button type="submit" class="btn btn-dark">
+              <span *ngIf="loadingAddingTodo" class="spinner-border spinner-border-sm me-1"></span>
+              Submit
+            </button>
+        </form>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="row">
+        <h1>My Todos</h1>
+        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Created Date</th>
+                <th scope="col">Completed?</th>
+                <th scope="col">Mark Completed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let todo of todos" >
+                <td scope="row">{{todo.description}}</td>
+                <td>{{todo.createdDate | date: 'MM/dd/yyyy hh:mm a'}}</td>
+                <td>{{todo.isCompleted}}</td>
+                <td>
+                  <input id="todo.id" type="checkbox" [checked]="todo.isCompleted" (change)="updateTodoCompletion($event, todo)"/>
+                </td>
+                <td>
+                  <button class="btn btn-danger btn-sm" (click)="deleteTodo(todo)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
