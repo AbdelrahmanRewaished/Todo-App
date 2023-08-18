@@ -2,6 +2,10 @@
 
 TodoApp is a web application that allows users to register an account, login and add, read, edit and delete their own todos. There is also an admin panel for managing users and todos.
 
+## Demo (for display functionality of both the frontend and the backend)
+
+<video src="https://otventurescorp-my.sharepoint.com/personal/abdelrahman_saleh_intern_linkdevelopment_com/_layouts/15/embed.aspx?UniqueId=6d279a02-e971-474f-b214-b476f3df38d9&embed=%7B%22af%22%3Atrue%2C%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="Todo App.mp4" style="border:none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%; max-width: 100%;"></video>
+
 ## Tech Stack
 
 The application uses the following technologies:
